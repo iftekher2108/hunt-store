@@ -25,4 +25,13 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function adminProfile() {
+        return view('auth.profile');
+    }
+
+    public function productList() {
+        return view('dashboard.products.product-list');
+    }
+
 }
