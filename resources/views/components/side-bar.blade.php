@@ -1,8 +1,8 @@
   <!--**********************************
             Sidebar start
         ***********************************-->
-  <div class="quixnav">
-      <div class="quixnav-scroll">
+  <div class="side-menu">
+
           <ul class="metismenu h-100 overflow-y-scroll" id="menu">
               <li><a href="{{ route('home') }}">
                       <i class="fa-solid fa-house"></i>
@@ -74,17 +74,9 @@
                       {{-- <li><a href="table-bootstrap-basic.html">Shipping Methods</a></li> --}}
                       <li><a href="table-bootstrap-basic.html">Payment Methods</a></li>
 
-
-
-
                   </ul>
               </li>
-
-
           </ul>
-      </div>
 
   </div>
-  <!--**********************************
-            Sidebar end
-        ***********************************-->
+
