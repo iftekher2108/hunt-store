@@ -1,9 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-<h1>
-    this product list pages
-</h1>
+    <h4>this product list pages</h4>
+    
+
 @endsection
-
-

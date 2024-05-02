@@ -51,7 +51,7 @@
                 <span class="nav-text">Users</span></a>
                   <ul aria-expanded="false">
                       <li><a href="./ui-accordion.html">User</a></li>
-                      <li><a href="./ui-alert.html">Roles</a></li>
+                      <li><a href="{{ route('role.index') }}">Roles</a></li>
                   </ul>
               </li>
 
