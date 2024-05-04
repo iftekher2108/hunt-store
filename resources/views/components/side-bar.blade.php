@@ -1,82 +1,230 @@
-  <!--**********************************
-            Sidebar start
-        ***********************************-->
-  <div class="side-menu">
 
-          <ul class="metismenu h-100 overflow-y-scroll" id="menu">
-              <li><a href="{{ route('home') }}">
-                      <i class="fa-solid fa-house"></i>
-                      <span class="nav-text">Dashboard</span></a>
-              </li>
-              <li class="nav-label">Products</li>
-              <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                      <i class="fa-solid fa-sitemap"></i>
-                      <span class="nav-text">Products</span></a>
-                  <ul aria-expanded="false">
-                      <li><a href="{{ route('product.list') }}">Products Catalog</a></li>
-                      <li><a href="./app-calender.html">Catagories</a></li>
-                      <li><a href="./app-calender.html">Brands</a></li>
-                      <li><a href="./app-calender.html">Hot Sales</a></li>
-                      {{-- <li><a href="./app-calender.html">Coupons</a></li> --}}
-                      {{-- <li><a href="./form-element.html">Exel Import</a></li> --}}
-                  </ul>
-              </li>
+  <div class="menu bg-dark">
 
 
-              {{-- <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                      <i class="fa-solid fa-money-bill-transfer"></i>
-                      <span class="nav-text">Sales</span></a>
-                  <ul aria-expanded="false">
-                      <li><a href="./chart-flot.html">Orders</a></li>
-                      <li><a href="./chart-morris.html">Transactions</a></li>
-                  </ul>
-              </li> --}}
+      <ul class="py-2">
 
-              <li class="nav-label">Site Settings</li>
+          <li class="menu-header text-uppercase">
+              <span class="menu-header-text">Dashboard</span>
+          </li>
 
-              <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                      <i class="fa-solid fa-gears"></i>
-                      <span class="nav-text">Site Settings</span></a>
-                  <ul aria-expanded="false">
-                      <li><a href="./ui-accordion.html">Pages</a></li>
-                      <li><a href="./ui-alert.html">Menus</a></li>
-                      {{-- <li><a href="./ui-accordion.html">Sliders</a></li> --}}
+          <!-- Dashboard -->
+          <li class="menu-item {{ Request::is('home') ? 'active' : '' }}">
+              <a href="{{ url('home') }}" class="nav-link">
+                  <i class="fa-solid me-2 fa-house"></i>
+                  Dashboard
+              </a>
+          </li>
 
-                  </ul>
-              </li>
 
-              <li class="nav-label">System Settings</li>
-              <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                <i class="fa-solid fa-users"></i>
-                <span class="nav-text">Users</span></a>
-                  <ul aria-expanded="false">
-                      <li><a href="./ui-accordion.html">User</a></li>
-                      <li><a href="{{ route('role.index') }}">Roles</a></li>
-                  </ul>
-              </li>
 
-              <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                <i class="fa-solid fa-sliders"></i>
-                <span class="nav-text">Store settings</span></a>
-                  <ul aria-expanded="false">
-                      <li><a href="./uc-nestable.html">front Store</a></li>
-                      <li><a href="./uc-noui-slider.html">Theme Settings</a></li>
-                  </ul>
-              </li>
+          <li class="menu-header text-uppercase">
+              <span class="menu-header-text">Products</span>
+          </li>
 
-              <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                <i
-                          class="icon icon-layout-25"></i>
-                          <span class="nav-text">Main Settings</span></a>
-                  <ul aria-expanded="false">
-                      <li><a href="table-bootstrap-basic.html">Genarel</a></li>
-                      <li><a href="table-bootstrap-basic.html">Social Logins</a></li>
-                      {{-- <li><a href="table-bootstrap-basic.html">Shipping Methods</a></li> --}}
-                      <li><a href="table-bootstrap-basic.html">Payment Methods</a></li>
+          <!-- Layouts -->
+          <li class="menu-item">
+              <a href="javascript:void(0);" class="nav-link menu-toggle">
+                  <div>
+                      <i class="fa-solid me-2 fa-sitemap"></i>
+                      Products
+                  </div>
+                  <i class="fa-solid arrow fa-caret-right"></i>
+              </a>
 
-                  </ul>
-              </li>
-          </ul>
+              <ul class="menu-sub hide">
+                  <li class="menu-item {{ Request::route('product.list') ? 'active' : '' }}">
+                      <a href="{{ route('product.list') }}" class="nav-link">
+                          Products Catalog
+                      </a>
+                  </li>
+                  <li class="menu-item {{ Request::is('slider') ? 'active' : '' }}">
+                      <a href="" class="nav-link">
+                          Catagories
+                      </a>
+                  </li>
 
+                  <li class="menu-item {{ Request::is('slider') ? 'active' : '' }}">
+                      <a href="" class="nav-link">
+                          Brands
+                      </a>
+                  </li>
+
+                  {{-- <li class="menu-item ">
+                        <a href="" class="nav-link">
+                            Hot Sales
+                        </a>
+                    </li> --}}
+
+                  {{-- <li class="menu-item ">
+                        <a href="" class="nav-link">
+                            Coupons
+                        </a>
+                    </li>
+
+                    <li class="menu-item ">
+                        <a href="" class="nav-link">
+                            Exel Import
+                        </a>
+                    </li> --}}
+
+
+
+              </ul>
+          </li>
+
+
+          <li class="menu-item">
+              <a href="javascript:void(0);" class="nav-link menu-toggle">
+                  <div>
+                      <i class="fa-solid me-2 fa-money-bill-transfer"></i>
+                      Sales
+                  </div>
+                  <i class="fa-solid arrow fa-caret-right"></i>
+              </a>
+
+              <ul class="menu-sub hide">
+                  <li class="menu-item {{ Request::is('home') ? 'active' : '' }}">
+                      <a href="" class="nav-link">
+                          Orders
+                      </a>
+                  </li>
+
+                  <li class="menu-item {{ Request::is('home') ? 'active' : '' }}">
+                      <a href="" class="nav-link">
+                          Transactions
+                      </a>
+                  </li>
+
+              </ul>
+          </li>
+
+
+          <li class="menu-header text-uppercase">
+              <span class="menu-header-text">Site Settings</span>
+          </li>
+
+          <li class="menu-item">
+              <a href="javascript:void(0);" class="nav-link menu-toggle">
+                  <div>
+                      <i class="fa-solid me-2 fa-gears"></i>
+                      Site Settings
+                  </div>
+                  <i class="fa-solid arrow fa-caret-right"></i>
+              </a>
+
+              <ul class="menu-sub hide">
+                  <li class="menu-item {{ Request::is('home') ? 'active' : '' }}">
+                      <a href="" class="nav-link">
+                          Pages
+                      </a>
+                  </li>
+
+                  <li class="menu-item ">
+                      <a href="" class="nav-link">
+                          Menus
+                      </a>
+                  </li>
+
+                  {{-- <li class="menu-item ">
+                      <a href="" class="nav-link">
+                          Sliders
+                      </a>
+                  </li> --}}
+
+              </ul>
+          </li>
+
+
+          <li class="menu-header text-uppercase">
+              <span class="menu-header-text">System Settings</span>
+          </li>
+
+          <li class="menu-item">
+              <a href="javascript:void(0);" class="nav-link menu-toggle">
+                  <div>
+                      <i class="fa-solid fa-users"></i>
+                      Users
+                  </div>
+
+                  <i class="fa-solid arrow fa-caret-right"></i>
+              </a>
+              <ul class="menu-sub hide">
+                  <li class="menu-item ">
+                      <a href="" class="nav-link">
+                          USers
+                      </a>
+                  </li>
+                  <li class="menu-item ">
+                      <a href="" class="nav-link">
+                          Roles
+                      </a>
+                  </li>
+              </ul>
+          </li>
+
+          <li class="menu-item">
+              <a href="javascript:void(0);" class="nav-link menu-toggle">
+                  <div>
+                      <i class="fa-solid fa-sliders"></i>
+                      Store settings
+                  </div>
+
+                  <i class="fa-solid arrow fa-caret-right"></i>
+              </a>
+              <ul class="menu-sub hide">
+                  <li class="menu-item ">
+                      <a href="" class="nav-link">
+                          front Store
+                      </a>
+                  </li>
+                  <li class="menu-item ">
+                      <a href="" class="nav-link">
+                          Theme Settings
+                      </a>
+                  </li>
+              </ul>
+          </li>
+
+          <li class="menu-item">
+              <a href="javascript:void(0);" class="nav-link menu-toggle">
+                  <div>
+                      <i class="fa-solid fa-screwdriver-wrench"></i>
+                      Main Settings
+                  </div>
+
+                  <i class="fa-solid arrow fa-caret-right"></i>
+              </a>
+              <ul class="menu-sub hide">
+                  <li class="menu-item ">
+                      <a href="" class="nav-link">
+                        Genarel
+                      </a>
+                  </li>
+                  <li class="menu-item ">
+                      <a href="" class="nav-link">
+                        Social Logins
+                      </a>
+                  </li>
+
+                  <li class="menu-item ">
+                    <a href="" class="nav-link">
+                        Shipping Methods
+                    </a>
+                </li>
+
+                <li class="menu-item ">
+                    <a href="" class="nav-link">
+                        Payment Methods
+                    </a>
+                </li>
+
+
+              </ul>
+          </li>
+
+
+
+
+      </ul>
   </div>
-

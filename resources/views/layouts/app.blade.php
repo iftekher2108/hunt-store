@@ -13,6 +13,7 @@
     {{-- <link href="{{  }}" rel="stylesheet"> --}}
     {{-- <link rel="stylesheet" href="{{ asset('back-end/assets/css/style.css') }}"> --}}
     <link rel="stylesheet" href="{{ asset('back-end/assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('back-end/assets/css/main.min.css') }}">
 
 
 </head>
@@ -20,103 +21,105 @@
 <body>
 
 
-    <!--**********************************
-        Main wrapper start
-    ***********************************-->
-    <div id="app">
+    <div id="loader" class="fixed-top bg-white w-100 h-100">
+        <div class=" d-flex align-items-center justify-content-center w-100 h-100">
+            <div class="d-flex gap-3 text-primary">
+                <i class="fa-solid fa-circle fs-4 fa-beat-fade"></i>
+                <i class="fa-solid fa-circle fs-4 fa-beat-fade" style='animation-delay: 0.1s;'></i>
+                <i class="fa-solid fa-circle fs-4 fa-beat-fade" style='animation-delay: 0.2s;'></i>
+                <i class="fa-solid fa-circle fs-4 fa-beat-fade" style='animation-delay: 0.3s;'></i>
+            </div>
+        </div>
 
-        <!--**********************************
-            Nav header start
-        ***********************************-->
-        <div class="row p-2">
-            <div class="col-3 py-4 px-3">
-                <div class="d-flex justify-content-between ">
+    </div>
+
+
+    <div id="app">
+        {{-- =================================== header start ======================================== --}}
+        <div class="bg-primary row p-2 px-4 align-items-center text-white">
+            <div class="col-3">
+                <div class="d-flex justify-content-between">
                     <a href="{{ url('/') }}" class="brand-logo">
                         <img class="img-fluid" src="./images/logo-text.png" alt="logo">
                     </a>
 
-                    <div class="hamburger">
-                        <i class="fa-solid fa-bars"></i>
+                    <div class="menu-btn ">
+                        <i class="fa-solid fs-4 border-end border-start btn rounded py-2 px-3 fa-bars"></i>
                     </div>
                 </div>
             </div>
 
             <div class="col-9">
-                        <nav class="navbar navbar-expand">
-                            <div class="collapse navbar-collapse justify-content-end">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-end">
 
 
-                                <ul class="navbar-nav">
+                        <ul class="navbar-nav">
 
-                                    @guest
-                                        @if (Route::has('login'))
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                            </li>
-                                        @endif
+                            @guest
+                                @if (Route::has('login'))
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    </li>
+                                @endif
 
-                                        @if (Route::has('register'))
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                            </li>
-                                        @endif
-                                    @else
-                                        <li class="nav-item dropdown header-profile">
-                                            <a class="nav-link" href="#" role="button" data-toggle="dropdown">
-                                                <i class="fa-solid fa-user"></i>
-                                                {{ Auth::user()->name }}
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right gap-2">
-                                                <a href="{{ route('user.profile') }}" class="dropdown-item">
-                                                    <i class="fa-solid fa-user"></i>
-                                                    <span class="ml-2">Profile </span>
-                                                </a>
+                                @if (Route::has('register'))
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    </li>
+                                @endif
+                            @else
 
-                                                <a href="{{ route('logout') }}" class="dropdown-item"
-                                                    onclick="event.preventDefault();
+                            <div class="dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa-solid fa-user"></i>
+                                    {{ Auth::user()->name }}
+                                </a>
+
+                                <ul class="dropdown-menu">
+                                  <li>
+                                    <a href="{{ route('user.profile') }}" class="dropdown-item">
+                                        <i class="fa-solid fa-user"></i>
+                                        <span class="ml-2">Profile </span>
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a href="{{ route('logout') }}" class="dropdown-item"
+                                            onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                                                    <span class="ml-2">Logout </span>
-                                                </a>
-                                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                                    class="d-none">
-                                                    @csrf
-                                                </form>
-                                            </div>
-                                        </li>
-                                    @endguest
+                                            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                            <span class="ml-2">Logout </span>
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                            class="d-none">
+                                            @csrf
+                                        </form>
+                                  </li>
                                 </ul>
-                            </div>
-                        </nav>
+                              </div>
+                            @endguest
+                        </ul>
+                    </div>
+                </nav>
             </div>
-
         </div>
+    {{-- ================================== header end --}}
 
-        <!--**********************************
-            Nav header end
-        ***********************************-->
 
-        <!--**********************************
-            Header start
-        ***********************************-->
-
-        <!--**********************************
-            Header end ti-comment-alt
-        ***********************************-->
 
         <div class="row">
 
-            <div class="col-lg-3 col-md-3 col-sm-12">
+            <div class="side-menu col-lg-2 col-md-4 col-sm-12">
                 <x-side-bar />
             </div>
 
-            <div class="col-lg-9 col-md-9 col-sm-12">
+            <div class="col">
                 <!--**********************************
             Content body start
         ***********************************-->
-                <div class="content-body">
+
                     <!-- row -->
-                    <div class="container-fluid">
+                    <div class="container-fluid p-3">
 
                         <div class="card p-3">
                             @yield('content')
@@ -124,7 +127,6 @@
 
                     </div>
 
-                </div>
                 <!--**********************************
             Content body end
         ***********************************-->
@@ -159,10 +161,8 @@
         Scripts
     ***********************************-->
     <!-- Required vendors -->
+    <script src="{{ asset('back-end/assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('back-end/assets/plugins/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('back-end/assets/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('back-end/assets/plugins/quixnav/quixnav.min.js') }}"></script>
-    <script src="{{ asset('back-end/assets/plugins/metismenu/js/metisMenu.min.js') }}"></script>
     <script src="{{ asset('back-end/assets/js/custom.min.js') }}"></script>
 
 </body>

@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+ }
+
+html {
+    overflow-x: hidden;
+}
+
+.hide {
+    display:none;
+}
+
+ .rotate {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+}
