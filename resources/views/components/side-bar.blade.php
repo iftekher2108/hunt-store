@@ -9,7 +9,7 @@
           </li>
 
           <!-- Dashboard -->
-          <li class="menu-item {{ Request::is('home') ? 'active' : '' }}">
+          <li class="menu-item {{ Request::is('/home') ? 'active' : '' }}">
               <a href="{{ url('home') }}" class="nav-link">
                   <i class="fa-solid me-2 fa-house"></i>
                   Dashboard
@@ -33,13 +33,13 @@
               </a>
 
               <ul class="menu-sub hide">
-                  <li class="menu-item {{ Request::route('product.list') ? 'active' : '' }}">
+                  <li class="menu-item {{ Request::is('/product') ? 'active' : '' }}">
                       <a href="{{ route('product.list') }}" class="nav-link">
                           Products Catalog
                       </a>
                   </li>
-                  <li class="menu-item {{ Request::is('slider') ? 'active' : '' }}">
-                      <a href="" class="nav-link">
+                  <li class="menu-item {{ Request::is('/catagory') ? 'active' : '' }}">
+                      <a href="{{ route('catagory.index') }}" class="nav-link">
                           Catagories
                       </a>
                   </li>
@@ -84,13 +84,13 @@
               </a>
 
               <ul class="menu-sub hide">
-                  <li class="menu-item {{ Request::is('home') ? 'active' : '' }}">
+                  <li class="menu-item {{ Request::is('fvbdc') ? 'active' : '' }}">
                       <a href="" class="nav-link">
                           Orders
                       </a>
                   </li>
 
-                  <li class="menu-item {{ Request::is('home') ? 'active' : '' }}">
+                  <li class="menu-item {{ Request::is('gdf') ? 'active' : '' }}">
                       <a href="" class="nav-link">
                           Transactions
                       </a>
@@ -114,7 +114,7 @@
               </a>
 
               <ul class="menu-sub hide">
-                  <li class="menu-item {{ Request::is('home') ? 'active' : '' }}">
+                  <li class="menu-item {{ Request::is('gdfg') ? 'active' : '' }}">
                       <a href="" class="nav-link">
                           Pages
                       </a>
@@ -152,11 +152,11 @@
               <ul class="menu-sub hide">
                   <li class="menu-item ">
                       <a href="" class="nav-link">
-                          USers
+                          Users
                       </a>
                   </li>
-                  <li class="menu-item ">
-                      <a href="" class="nav-link">
+                  <li class="menu-item {{ Request::is('/role') ? 'active' : '' }}">
+                      <a href="{{ route('role.index') }}" class="nav-link">
                           Roles
                       </a>
                   </li>

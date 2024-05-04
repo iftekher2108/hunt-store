@@ -34,7 +34,7 @@
     </div>
 
 
-    <div id="app">
+    <div id="app" style="background: #f7f4f4">
         {{-- =================================== header start ======================================== --}}
         <div class="bg-primary row p-2 px-4 align-items-center text-white">
             <div class="col-3">
@@ -44,7 +44,7 @@
                     </a>
 
                     <div class="menu-btn ">
-                        <i class="fa-solid fs-4 border-end border-start btn rounded py-2 px-3 fa-bars"></i>
+                        <i class="fa-solid fs-4 border-end border-start text-primary  bg-white rounded py-2 px-3 fa-bars"></i>
                     </div>
                 </div>
             </div>
@@ -70,13 +70,13 @@
                                 @endif
                             @else
 
-                            <div class="dropdown">
+                            <div class="dropdown border-start btn border-end">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fa-solid fa-user"></i>
                                     {{ Auth::user()->name }}
                                 </a>
 
-                                <ul class="dropdown-menu">
+                                <ul class="dropdown-menu dropdown-menu-end">
                                   <li>
                                     <a href="{{ route('user.profile') }}" class="dropdown-item">
                                         <i class="fa-solid fa-user"></i>
@@ -164,6 +164,8 @@
     <script src="{{ asset('back-end/assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('back-end/assets/plugins/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('back-end/assets/js/custom.min.js') }}"></script>
+
+    @yield('script')
 
 </body>
 
